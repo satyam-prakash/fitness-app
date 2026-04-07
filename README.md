@@ -1,50 +1,121 @@
-# Welcome to your Expo app 👋
+# 🏋️ FitTrack — AI-Powered Fitness Tracker
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A full-stack, cross-platform fitness and nutrition tracking app built with **Expo (React Native)** + **Node.js/Express** backend. Features AI coaching, workout logging, diet tracking, water hydration monitoring, and more.
 
-## Get started
+---
 
-1. Install dependencies
+## 📱 Features
 
-   ```bash
-   npm install
-   ```
+- **Dashboard** — Calorie ring, macro tracking, streaks, AI Smart Coach insights
+- **💧 Hydration Tracker** — Log water intake by glass/bottle with animated progress bar
+- **🍽️ Diet Logging** — Food database search, barcode scanner, meal-type grouping
+- **💪 Workout Tracker** — Custom exercises, sets/reps/weight, rest timer, workout history
+- **📊 Analytics** — Weekly/monthly charts for calories, protein, workouts
+- **🧠 AI Smart Coach** — Personalized daily fitness insights powered by OpenAI
+- **🔥 Streaks** — Logging and workout streaks gamification
+- **🌙 Dark/Light Mode** — System-aware theme with beautiful dark UI
+- **⚡ Haptic Feedback** — Subtle haptics on interactions
+- **Skeleton Loaders** — Polished loading states across all screens
+- **Pull-to-Refresh** — Real-time data refresh on every screen
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🛠️ Tech Stack
 
-In the output, you'll find options to open the app in a
+| Layer | Technology |
+|-------|-----------|
+| Mobile | Expo 54 + React Native 0.81 |
+| Navigation | Expo Router (file-based) |
+| State | Zustand |
+| Backend | Node.js + Express + TypeScript |
+| Database | MongoDB + Mongoose |
+| AI | OpenAI GPT API |
+| Charts | react-native-chart-kit |
+| Icons | lucide-react-native |
+| Build | EAS Build |
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🚀 Getting Started
 
-## Get a fresh project
+### Prerequisites
 
-When you're ready, run:
+- Node.js 18+
+- Expo CLI: `npm install -g expo-cli`
+- MongoDB instance (local or Atlas)
+
+### 1. Clone & Install
 
 ```bash
-npm run reset-project
+git clone https://github.com/satyam-prakash/fitness-app.git
+cd fitness-app
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Backend Setup
 
-## Learn more
+```bash
+cd backend
+npm install
+# Create .env:
+# MONGODB_URI=your_mongo_uri
+# JWT_SECRET=your_jwt_secret
+# OPENAI_API_KEY=your_openai_key
+npm run dev
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 3. Frontend Setup
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+cd frontend
+npm install
+# Update services/api.ts with your backend URL
+npx expo start
+```
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+## 📦 Building APK
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+We use **EAS Build** for generating Android APKs.
+
+```bash
+cd frontend
+npm install -g eas-cli
+eas login
+eas build --platform android --profile preview
+```
+
+The `preview` profile generates a **sideloadable `.apk`** (no Play Store needed).
+
+---
+
+## 📁 Project Structure
+
+```
+fitness-app/
+├── backend/              # Express API server
+│   └── src/
+│       ├── routes/       # API routes (auth, diet, workout, etc.)
+│       ├── models/       # Mongoose models
+│       └── middleware/   # Auth middleware
+└── frontend/             # Expo React Native app
+    ├── app/
+    │   ├── (auth)/       # Login / Register screens
+    │   └── (tabs)/       # Main tab screens
+    ├── components/       # Reusable UI components
+    ├── hooks/            # Custom hooks (haptics, theme)
+    ├── services/         # API client
+    └── store/            # Zustand global state
+```
+
+---
+
+## 🤝 Contributing
+
+Pull requests welcome! Please open an issue first to discuss changes.
+
+---
+
+## 📄 License
+
+MIT
