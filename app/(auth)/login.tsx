@@ -5,10 +5,7 @@ import { ThemedView } from '@/components/themed-view';
 import { useStore } from '@/store';
 import { useAppTheme } from '@/hooks/use-app-theme';
 import { Link, useRouter } from 'expo-router';
-import axios from 'axios';
-
-// Replace with your actual local machine IP if testing on physical device, e.g. 192.168.1.100
-const API_URL = 'http://localhost:5000/api';
+import { loginApi } from '@/services/api';
 
 export default function LoginScreen() {
   const { setUser } = useStore();
@@ -23,7 +20,7 @@ export default function LoginScreen() {
     if (!email || !password) return;
     setLoading(true);
     try {
-      const { data } = await axios.post(`${API_URL}/users/login`, { email, password });
+      const { data } = await loginApi(email, password);
       setUser(data, data.token);
       router.replace('/(tabs)');
     } catch (err: any) {

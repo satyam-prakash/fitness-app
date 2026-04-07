@@ -5,9 +5,7 @@ import { ThemedView } from '@/components/themed-view';
 import { useStore } from '@/store';
 import { useAppTheme } from '@/hooks/use-app-theme';
 import { Link, useRouter } from 'expo-router';
-import axios from 'axios';
-
-const API_URL = 'http://localhost:5000/api';
+import { signupApi } from '@/services/api';
 
 export default function SignupScreen() {
   const { setUser } = useStore();
@@ -23,7 +21,7 @@ export default function SignupScreen() {
     if (!email || !password || !name) return;
     setLoading(true);
     try {
-      const { data } = await axios.post(`${API_URL}/users/signup`, { name, email, password });
+      const { data } = await signupApi(name, email, password);
       setUser(data, data.token);
       router.replace('/(tabs)');
     } catch (err: any) {
