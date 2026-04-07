@@ -12,7 +12,7 @@ import {
   getRecentFoodsApi 
 } from '@/services/api';
 import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler';
-import { BarCodeScanner } from 'expo-barcode-scanner';
+// import { BarCodeScanner } from 'expo-barcode-scanner'; // Temporarily disabled for build
 import axios from 'axios';
 import { SkeletonLoader } from '@/components/SkeletonLoader';
 import { EmptyState } from '@/components/EmptyState';
@@ -58,8 +58,9 @@ export default function DietScreen() {
   }, [search]);
 
   const requestCameraPermission = async () => {
-    const { status } = await BarCodeScanner.requestPermissionsAsync();
-    setHasPermission(status === 'granted');
+    // const { status } = await BarCodeScanner.requestPermissionsAsync();
+    // setHasPermission(status === 'granted');
+    setHasPermission(false); // Temporarily disabled
   };
 
   const loadTodayLog = async () => {
@@ -284,18 +285,14 @@ export default function DietScreen() {
             value={search}
             onChangeText={setSearch}
           />
-          {/* FEATURE 2: Barcode Scanner Button */}
+          {/* FEATURE 2: Barcode Scanner Button - Temporarily Disabled */}
           <TouchableOpacity
             onPress={() => {
-              if (hasPermission) {
-                setShowScanner(true);
-              } else {
-                requestCameraPermission();
-              }
+              Alert.alert('Coming Soon', 'Barcode scanner will be available in a future update!');
             }}
             style={styles.cameraBtn}
           >
-            <Camera color={theme.tint} size={22} />
+            <Camera color={theme.tabIconDefault} size={22} />
           </TouchableOpacity>
         </View>
 
@@ -361,8 +358,8 @@ export default function DietScreen() {
           )}
         </ScrollView>
 
-        {/* FEATURE 2: Barcode Scanner Modal */}
-        {showScanner && (
+        {/* FEATURE 2: Barcode Scanner Modal - Temporarily Disabled */}
+        {/* {showScanner && (
           <Modal visible={showScanner} animationType="slide">
             <View style={{ flex: 1, backgroundColor: '#000' }}>
               <BarCodeScanner
@@ -382,7 +379,7 @@ export default function DietScreen() {
               </View>
             </View>
           </Modal>
-        )}
+        )} */}
 
         {/* FEATURE 2: Scanned Food Confirmation */}
         {showFoodConfirm && scannedFood && (
