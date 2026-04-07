@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, ScrollView, Dimensions, ActivityIndicator, TouchableOpacity, TextInput, RefreshControl } from 'react-native';
+import { View, StyleSheet, ScrollView, Dimensions, ActivityIndicator, TouchableOpacity, TextInput } from 'react-native';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { useAppTheme } from '@/hooks/use-app-theme';
@@ -15,9 +15,6 @@ import {
 } from '@/services/api';
 import { TrendingUp, Flame, Dumbbell, Target, Scale, Activity, PieChart, Info, Check } from 'lucide-react-native';
 import Svg, { Circle, Line, Text as SvgText, G } from 'react-native-svg';
-import { SkeletonLoader } from '@/components/SkeletonLoader';
-import { EmptyState } from '@/components/EmptyState';
-import { useHaptics } from '@/hooks/useHaptics';
 
 const { width } = Dimensions.get('window');
 const CHART_WIDTH = width - 64;
@@ -65,7 +62,7 @@ function BarChart({ data, valueKey, color, maxVal, goal }: {
               <View style={[styles.barFill, { backgroundColor: color, height }]} />
             </View>
             <ThemedText style={[styles.barLabel, { color: theme.tabIconDefault }]}>
-              {item.day ? String(item.day).slice(0, 3) : ''}
+              {item.day.slice(0, 3)}
             </ThemedText>
           </View>
         );
@@ -103,8 +100,6 @@ export default function AnalyticsScreen() {
   const [dietByMeal, setDietByMeal] = useState<any>({});
   
   const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false);
-  const haptics = useHaptics();
 
   useEffect(() => {
     loadData();
@@ -157,13 +152,6 @@ export default function AnalyticsScreen() {
       console.error(e);
     }
     setLoading(false);
-    setRefreshing(false);
-  };
-
-  const onRefresh = () => {
-    haptics.light();
-    setRefreshing(true);
-    loadData();
   };
 
   const handleLogWeight = async () => {
@@ -210,27 +198,12 @@ export default function AnalyticsScreen() {
 
   if (loading && dietData.length === 0) {
     return (
-      <ThemedView style={[styles.container, { backgroundColor: theme.background }]}>
-        <View style={[styles.header, { paddingHorizontal: 20, paddingTop: 60 }]}>
-          <TrendingUp color={theme.tint} size={24} />
-          <ThemedText type="title" style={{ marginLeft: 10, fontSize: 26, flex: 1 }}>Analytics</ThemedText>
-        </View>
-        <View style={{ paddingHorizontal: 20, gap: 16 }}>
-          <View style={styles.statsGrid}>
-            <SkeletonLoader type="card" style={{ flex: 1 }} />
-            <SkeletonLoader type="card" style={{ flex: 1 }} />
-          </View>
-          <View style={styles.statsGrid}>
-            <SkeletonLoader type="card" style={{ flex: 1 }} />
-            <SkeletonLoader type="card" style={{ flex: 1 }} />
-          </View>
-          <SkeletonLoader type="chart" />
-        </View>
+      <ThemedView style={[styles.container, { backgroundColor: theme.background, justifyContent: 'center', alignItems: 'center' }]}>
+        <ActivityIndicator size="large" color={theme.tint} />
+        <ThemedText style={{ color: theme.tabIconDefault, marginTop: 12 }}>Loading analytics...</ThemedText>
       </ThemedView>
     );
   }
-
-  const isCompletelyEmpty = !loading && totals.activeDays === 0 && totals.totalWorkouts === 0 && weightHistory.length === 0;
 
   return (
     <ThemedView style={[styles.container, { backgroundColor: theme.background }]}>
@@ -251,23 +224,15 @@ export default function AnalyticsScreen() {
           </View>
         </View>
 
-        {isCompletelyEmpty ? (
-          <EmptyState 
-            icon={<PieChart size={40} color={theme.tabIconDefault} />}
-            title="No data yet"
-            subtitle="Log your diet or workouts to see analytics."
-          />
-        ) : (
-          <>
-            {/* Summary Stats */}
-            <View style={styles.statsGrid}>
-              <StatCard icon={<Flame color={theme.tint} size={20} />} label="Avg Daily Cals" value={totals.avgCals || 0} sub="kcal / day" color={theme.tint} theme={theme} />
-              <StatCard icon={<Target color={theme.accent1} size={20} />} label="Total Protein" value={`${totals.totalProtein || 0}g`} sub="this period" color={theme.accent1} theme={theme} />
-              <StatCard icon={<Dumbbell color={theme.accent2} size={20} />} label="Workouts" value={totals.totalWorkouts || 0} sub="sessions" color={theme.accent2} theme={theme} />
-              <StatCard icon={<TrendingUp color={theme.accent3} size={20} />} label="Active Days" value={totals.activeDays || 0} sub={`out of ${days}`} color={theme.accent3} theme={theme} />
-            </View>
+        {/* Summary Stats */}
+        <View style={styles.statsGrid}>
+          <StatCard icon={<Flame color={theme.tint} size={20} />} label="Avg Daily Cals" value={totals.avgCals || 0} sub="kcal / day" color={theme.tint} theme={theme} />
+          <StatCard icon={<Target color={theme.accent1} size={20} />} label="Total Protein" value={`${totals.totalProtein || 0}g`} sub="this period" color={theme.accent1} theme={theme} />
+          <StatCard icon={<Dumbbell color={theme.accent2} size={20} />} label="Workouts" value={totals.totalWorkouts || 0} sub="sessions" color={theme.accent2} theme={theme} />
+          <StatCard icon={<TrendingUp color={theme.accent3} size={20} />} label="Active Days" value={totals.activeDays || 0} sub={`out of ${days}`} color={theme.accent3} theme={theme} />
+        </View>
 
-            {/* Weight Tracking */}
+        {/* Weight Tracking */}
         <View style={[styles.chartCard, { backgroundColor: theme.cardBackground, borderColor: theme.border }]}>
           <View style={styles.chartHeader}>
             <Scale color={theme.accent1} size={18} />
@@ -436,8 +401,6 @@ export default function AnalyticsScreen() {
               <ThemedText style={{ color: theme.tabIconDefault, fontSize: 11 }}>Y: Volume</ThemedText>
             </View>
           </View>
-        )}
-          </>
         )}
 
       </ScrollView>
