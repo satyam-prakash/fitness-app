@@ -1,0 +1,51 @@
+﻿{
+  "id": "f62246e2-95a3-48ef-945c-3fdabaf8c7b3",
+  "status": "ERRORED",
+  "platform": "ANDROID",
+  "error": {
+    "errorCode": "UNKNOWN_ERROR",
+    "message": "Unknown error. See logs of the Bundle JavaScript build phase for more information."
+  },
+  "artifacts": {},
+  "fingerprint": {
+    "id": "019d67bf-93cb-7ac4-bba0-3c4046ba06e0",
+    "hash": "8e8452f9008149e0e1d3e4d5ce6c50882fe76cf8"
+  },
+  "initiatingActor": {
+    "id": "a7b4a8a0-51c3-486a-b09e-f9c8d21713cd",
+    "displayName": "satyampr01"
+  },
+  "logFiles": [
+    "https://job-logs.eascdn.net/production/f62246e2-95a3-48ef-945c-3fdabaf8c7b3/1775562101894-4f6b9487-dedc-4fe2-b7e8-29d42026bb6a.txt?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=www-production%40exponentjs.iam.gserviceaccount.com%2F20260407%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260407T114307Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=309e822eaf05440ec18f210e4586bfb43e4c748b09fd81785af46e337ca2d1c3a3adb30e32a3e4437023a010cf4a4664b6e7816e94cbaeba51d135ad9486c984c27268725906cf0804f366d154216b9c46d84a5c90433992289a691910603476c53f992f7ffbcd9ea4f012621346fbb68a4d62457c6d931a5a68e4816a2763bb44883f88ac3d45120ec4f2b285599e23a88b533b5f7e3da88ef18ccd37bec05899f3f5f5f8bf8bd17e195844bef2ba26544098c55737024c82fd3e180b67e1c2fe307a7c27341a16054f921c9108928738d0a8b62f53040d13f54f3624752003b440af99cd3b5e4103ea70289606ae2f49b2f1a3d397ad951f32e75fcec88579",
+    "https://job-logs.eascdn.net/production/f62246e2-95a3-48ef-945c-3fdabaf8c7b3/1775562109388-2bea2470-a622-4352-a937-fbbce2a74e7c.txt?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=www-production%40exponentjs.iam.gserviceaccount.com%2F20260407%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260407T114307Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=70cdd580bf78738ffcc23d91650e0a4545abd720d74913f14f9c8e0936ccd4a927eea016d23dc3ba2c393aaa26e865ac29c55cb751b27e5108a75b34f0426a407c174865f5c1239307fe02bc1a7627840f867b393fe6565cb39d5b9a8ad8156aefe6d9fa5a2c41548d555ff12b925bd1454ce837b1e8819f7db703fb9cb168d7e52fd5f86325028fcf5924bd8abc77983e1880c585d02207d1edfecd2539a2207c48fbf0618066be92385d3dbea6c91680662832d795e13d68df389b75ce06ba11af5a2507603557f1471fbbdd2de8b910bb7c1cd197af3e2344941de44aa7f7d9593727878883d2e588216630844684bee97b9add22ece729d8784ed3eedab7",
+    "https://job-logs.eascdn.net/production/f62246e2-95a3-48ef-945c-3fdabaf8c7b3/1775562109717-03065e02-7af2-41d9-8815-e5848871f135.txt?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=www-production%40exponentjs.iam.gserviceaccount.com%2F20260407%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260407T114307Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=9fa67f425d21399b976051d0f4eeadb7cf8d8e85bad092c01b12efc2c073b2d74168dc1e17c2a8ad69f4582b4c9b745acc1adfc4c6a5e11eb2d942c871e9c13a9338d65bae0e1d7037185551fc399f6d6774afef194e7812d40887fe5b38c3f67638411c362638261a386bef25bd88d8e1901e7fc64d9ec97a635edb5fc3edf764295e7e947b05dc12bbe210c3ee56d315c4eedcf1289968a33c88ee28ef76c830bfc6447cbeddbbfdccf98c1723ae358f135858f213c1280a18c92b78186585861019625f14ff7293eec1f37bd9154ab3883628ddf90b188bb690cb89a21e13d1352fb1ec03ec79ca253e5311ec2cbda476a4248019e67f20e1b82089805605",
+    "https://job-logs.eascdn.net/production/f62246e2-95a3-48ef-945c-3fdabaf8c7b3/1775562109921-461667f1-4e14-4771-b2b3-2bd7cfcf3e9f.txt?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=www-production%40exponentjs.iam.gserviceaccount.com%2F20260407%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260407T114307Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=16458b934480a8969584f17334b65213533fd8c7eb315194f84cb2a9984bc9278ecc2d643d0f3ad7eaf3cf74aec12800d5f3355f0d6e2331942805cf485453eb887f2a144a75be82d3f4846de1c670a452635f5feb4823315f8922c7881866f85b2cc7270752354499353ce73e25676f1fa071596ac4d58d32cbd330c22d278ad1e60cc07a3c938f324d99aba02189cfa568039930c6e589684acdf609bc9261c09dcf6f5f5f4fa3facedf745805745d4516fe889a9a275f14c4aa3dc3a7848a89d45d6f6a8c9883e0d83d8e44a2cf89897ca9e91a7820b1ca55cc2f009bb5b95fff8dd339fbeb792a0fbb681844cc9947bfcdb342d1f73e5ab78538192a13d9"
+  ],
+  "project": {
+    "id": "6cdfd4bb-1bcb-4ad0-9a9a-784cec031a2f",
+    "name": "fittrack-app",
+    "slug": "fittrack-app",
+    "ownerAccount": {
+      "id": "9da577f1-e9b4-4dfc-abce-e9a67ac161f6",
+      "name": "satyampr01"
+    }
+  },
+  "distribution": "STORE",
+  "buildProfile": "production",
+  "sdkVersion": "54.0.0",
+  "appVersion": "1.0.0",
+  "appBuildVersion": "1",
+  "gitCommitHash": "f0e268059e044cec0b9060b6e3a1a43c37543afe",
+  "gitCommitMessage": "Initialize EAS project",
+  "priority": "NORMAL_PLUS",
+  "createdAt": "2026-04-07T11:41:41.666Z",
+  "updatedAt": "2026-04-07T11:44:20.322Z",
+  "completedAt": "2026-04-07T11:44:08.493Z",
+  "expirationDate": "2026-05-07T11:41:41.698Z",
+  "isForIosSimulator": false,
+  "metrics": {
+    "buildWaitTime": 125,
+    "buildQueueTime": 48132,
+    "buildDuration": 98090
+  }
+}
